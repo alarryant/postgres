@@ -13,7 +13,7 @@ const client = new pg.Client({
 let queryInput = process.argv[2];
 let queryCriterion = 'first_name';
 let table = 'famous_people'
-let sqlQuery = `SELECT * FROM ${table} WHERE ${queryCriterion} LIKE '%${queryInput}%'`
+let sqlQuery = `SELECT * FROM ${table} WHERE ${queryCriterion} LIKE '${queryInput}'`;
 
 function printResult(resultArray) {
   console.log(`Found ${resultArray.length} person(s) by the name '${queryInput}':`);
