@@ -16,8 +16,11 @@ let lastName = process.argv[3];
 let birthDate = process.argv[4];
 let table = 'famous_people'
 
-knex.insert({first_name: firstName, last_name: lastName, birthdate: birthDate}).into(`${table}`).then(function() {
-  return {inserted: true};
-}).then(function() {
-  knex.destroy();
-});
+knex.insert({first_name: firstName, last_name: lastName, birthdate: birthDate})
+  .into(`${table}`)
+  .then(function() {
+    return {inserted: true};
+  })
+  .then(function() {
+    knex.destroy();
+  });
